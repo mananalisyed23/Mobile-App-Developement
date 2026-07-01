@@ -7,7 +7,7 @@ class ContainerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Container'), backgroundColor: Colors.purple),
-      body: Column(children: [
+      body: Column(children: [  
         Container(
         height: 100,
         width: 200,
