@@ -10,7 +10,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-  GlobalKey formkey = GlobalKey<FormState>();
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,31 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.all(20),
         child: Form(
           key: formkey,
-          child: ListView(
+          child: Stack(
+            children: [
+              Positioned(
+                top: -130,
+                left: -130,
+              child: Container(
+                height: 300,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: Colors.indigo.withAlpha(100),
+                  shape: BoxShape.circle,
+                ),
+              )),
+              Positioned(
+                top: -90,
+                left: -90,
+              child: Container(
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Colors.indigo.withAlpha(150),
+                  shape: BoxShape.circle,
+                ),
+              )),
+              ListView(
             children: [
               SizedBox(height: 100),
               FlutterLogo(size: 100),
@@ -30,26 +54,40 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 20),
-              TextField(
+              TextFormField(
                 controller: email,
                 decoration: InputDecoration(
                   hintText: 'Email',
                   border: OutlineInputBorder(),
                 ),
+                validator: (value){
+                  if (value==null || value.isEmpty){
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 10),
-              TextField(
+              TextFormField(
                 controller: password,
                 decoration: InputDecoration(
                   hintText: 'Password',
                   border: OutlineInputBorder(),
                 ),
+                validator: (value){
+                  if (value==null || value.isEmpty){
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if(formkey.currentState!.validate()){}
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.indigo,
                     foregroundColor: Colors.white,
@@ -76,6 +114,30 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ],
           ),
+          Positioned(
+                bottom: 40,
+                right: -130,
+              child: Container(
+                height: 250,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: Colors.indigo.withAlpha(60),
+                  shape: BoxShape.circle,
+                ),
+              )),
+              Positioned(
+                bottom: 65,
+                right: -70,
+              child: Container(
+                height: 150,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Colors.indigo.withAlpha(120),
+                  shape: BoxShape.circle,
+                ),
+              )),
+            ],
+          )
         ),
       ),
     );
