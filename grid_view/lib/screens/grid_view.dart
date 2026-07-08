@@ -10,16 +10,35 @@ class GridViewScreen extends StatelessWidget {
         backgroundColor: Colors.indigo,
         title: Text('GridView ', style: TextStyle(color: Colors.white)),
       ),
-      body: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
+      body: GridView.count(
+        padding: EdgeInsets.all(10),
+        
+          crossAxisCount: 3,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 5,
+          
         children: [
           Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
           Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
           Image.asset('assets/images/image3.jfif', fit: BoxFit.fill),
           Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
           Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image3.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image3.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image2.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image3.jfif', fit: BoxFit.fill),
+          Image.asset('assets/images/image1.jfif', fit: BoxFit.fill),
         ],
       ),
     );
