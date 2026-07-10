@@ -21,7 +21,9 @@ class ThemesScreen extends StatelessWidget {
             ElevatedButton(onPressed: (){},
             child: Text('Themed button')),
             Text('Manan',
-            style: Theme.of(context).textTheme.displayMedium,
+            style: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 56,
+            ),
             )
           ],
         ),

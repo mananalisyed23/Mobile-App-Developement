@@ -20,6 +20,12 @@ class Themesday extends StatelessWidget {
           backgroundColor: Colors.red,
           foregroundColor: Colors.white,
           padding: EdgeInsets.all(15),
+        ),
+
+      ),
+      textTheme: TextTheme(
+        displayMedium: TextStyle(
+          fontSize: 56,
         )
       )
       ),
