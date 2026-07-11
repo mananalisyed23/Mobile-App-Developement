@@ -16,11 +16,13 @@ class _ChatScreenState extends State<ChatScreen> {
       key: GlobalKey(),
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: () {
-          globalKey.currentState?.openEndDrawer();},
-          icon: Icon(Icons.person)),
-          
-          ],
+          IconButton(
+            onPressed: () {
+              globalKey.currentState?.openEndDrawer();
+            },
+            icon: Icon(Icons.person),
+          ),
+        ],
         backgroundColor: const Color.fromARGB(255, 147, 250, 158),
         title: Text(
           'ProConnect',
@@ -33,110 +35,98 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: ListView(
         children: [
-          SizedBox(height: 4,),
-         Stack(
-          children: [
-            Positioned(
-              left: 24,
-              top: 8,
-              child: IconButton(
-              onPressed: (){},
-              iconSize: 34,
-              icon: Icon(Icons.search)),
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
+                hintText: 'Search conversations...',
+                prefix: Icon(Icons.search_outlined),
+              ),
             ),
-            Positioned
-            (left: 78,
-             top: 16,
-            child: Text('Search conversations',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w400
-            ),
-            )),
-             Container(
-            padding: EdgeInsets.all(5),
-            height: 64,
-            width: 400,
-            decoration: BoxDecoration(
-              color: Colors.white70,
-              borderRadius: BorderRadius.circular(40),
-              border: Border.all(color: const Color.fromARGB(255, 226, 226, 226)),
-            ),
-            margin: EdgeInsets.symmetric(horizontal: 10),
-          )
-          ],
-         ),
-         SizedBox(height: 6,),
-         Flex(direction: Axis.horizontal,
-         children: [
-          Flexible(
-            child: Stack(
-              children:[Container(
+          ),
+          SizedBox(height: 10),
+          Flex(
+            direction: Axis.horizontal,
+            children: [
+              Flexible(
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(100),
+                        border: Border.all(color: Colors.teal),
+                      ),
+                    ),
+                    Positioned(
+                      top: 56,
+                      left: 56,
+                      child: IconButton(
+                        onPressed: () {},
+                        iconSize: 20,
+                        icon: Icon(Icons.add),
+                        style: IconButton.styleFrom(
+                          backgroundColor: Colors.green,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(width: 4),
+              Container(
                 height: 100,
                 width: 100,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(100),
-                  border: Border.all(
-                    color: Colors.teal,
-                  )
+                  border: Border.all(color: Colors.teal),
                 ),
               ),
-              Positioned(
-                top: 56,
-                left: 56,
-                child: IconButton(onPressed: (){
-                },
-                iconSize: 20,
-                icon: Icon(Icons.add),
-                 style: IconButton.styleFrom(
-                  backgroundColor: Colors.green,
-                ),
+              SizedBox(width: 4),
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(100),
+                  border: Border.all(color: Colors.teal),
                 ),
               ),
-              ]
-            ),
+              SizedBox(width: 4),
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(100),
+                  border: Border.all(color: Colors.teal),
+                ),
+              ),
+            ],
           ),
-          SizedBox(width: 4,),
-           Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(
-                  color: Colors.teal,
-                )
+          SizedBox(height: 6),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListTile(
+              leading: Icon(Icons.person,
+              size: 50,
               ),
-            ),
-            SizedBox(width: 4,),
-            Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(
-                  color: Colors.teal,
-                )
-              ),
-            ),
-            SizedBox(width: 4,),
-            Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(
-                  color: Colors.teal,
-                )
+              title: Text('Person 1'),
+              subtitle: Text('This is new message'),
+              trailing: Text('11:58 AM',
+              textAlign: TextAlign.end,
               ),
             ),
             
-         ],
-         
-         )
+          ),
+          
         ],
       ),
     );
