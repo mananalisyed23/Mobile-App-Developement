@@ -64,8 +64,8 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add, size: 50, color: Colors.white),
         backgroundColor: Colors.green,
+        child: Icon(Icons.add, size: 50, color: Colors.white),
       ),
       appBar: AppBar(
         actions: [
