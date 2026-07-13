@@ -10,8 +10,8 @@ class ImportantWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.dark,
-      darkTheme:  ThemeData.dark(),
+      //themeMode: ThemeMode.dark, // for setting dark mode
+     // darkTheme:  ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: WidgetsScreen(),
     );
