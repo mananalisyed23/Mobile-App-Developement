@@ -103,16 +103,21 @@ class _WidgetsScreenState extends State<WidgetsScreen> {
               spacing: 5,
               runSpacing: 10,
               children: [
-                for(int i=0; i<=10;i++)
-                  Container(
-                  color: Colors.amber,
-                  height: 50,
-                  width: 50,
-                  )
-                
-
+                for (int i = 0; i <= 10; i++)
+                  Container(color: Colors.amber, height: 50, width: 50),
               ],
-            )
+            ),
+            SizedBox(height: 10),
+            CircularProgressIndicator(
+              value: 0.8,
+              backgroundColor: Colors.amber,
+              color: Colors.black,
+            ),
+            SizedBox(height: 10),
+            LinearProgressIndicator(
+              value: 0.6,
+              color: Colors.black,
+            ),
           ],
         ),
       ),
