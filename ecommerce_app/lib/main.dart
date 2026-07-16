@@ -12,6 +12,13 @@ class EcommerceApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: EcomApp(),
+      theme: ThemeData(
+      appBarTheme: AppBarTheme(backgroundColor: Colors.amber,),
+      scaffoldBackgroundColor: Colors.white,
+      cardTheme: CardThemeData(color: Colors.white),
+      ),
+      //darkTheme: ThemeData.dark(),
+     // themeMode: ThemeMode.dark,
     );
   }
 }
