@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/screens/navigation.dart';
-import 'package:navigation/screens/settings.dart';
 
 class Homescreen extends StatelessWidget {
   

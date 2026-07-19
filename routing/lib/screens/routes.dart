@@ -8,11 +8,11 @@ class RoutesHelper {
   static const String profile = '/profile';
   static const String setting = '/setting';
 
-  static myRoutes() {
+  static Map<String, Homescreen Function(_)> myRoutes() {
     return {home: (_) => Homescreen()};
   }
 
-  static myGenerateRoutes(RouteSettings settings) {
+  static MaterialPageRoute<dynamic> myGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case profile:
         {
