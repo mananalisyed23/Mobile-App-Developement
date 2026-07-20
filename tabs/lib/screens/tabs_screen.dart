@@ -17,6 +17,9 @@ class _TabsScreenState extends State<TabsScreen> {
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text('ProChat', style: TextStyle(color: Colors.white)),
+          actions: [
+            
+          ],
           bottom: TabBar(
             labelColor: Colors.white,
             unselectedLabelColor: Colors.white,
@@ -31,8 +34,8 @@ class _TabsScreenState extends State<TabsScreen> {
         body: TabBarView(
           children: [
             Center(child: Text('This is chat screen')),
-            Center(child: Text('This is chat screen')),
-            Center(child: Text('This is chat screen')),
+            Center(child: Text('This is status screen')),
+            Center(child: Text('This is calls screen')),
           ],
         ),
         //Through body and flexible
