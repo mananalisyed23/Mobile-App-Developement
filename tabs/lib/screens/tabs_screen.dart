@@ -17,9 +17,6 @@ class _TabsScreenState extends State<TabsScreen> {
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text('ProChat', style: TextStyle(color: Colors.white)),
-          actions: [
-            
-          ],
           bottom: TabBar(
             labelColor: Colors.white,
             unselectedLabelColor: Colors.white,
