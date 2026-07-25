@@ -20,6 +20,7 @@ class ProviderApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             themeMode: provider.mode,
+            darkTheme: ThemeData.dark(),
             home: ChangeNotifierProvider(
               create: (context) => HomeProvider(),
               child: HomeScreen(),
