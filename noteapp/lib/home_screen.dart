@@ -17,10 +17,19 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(title: Text('Home Screen')),
       body: Consumer<Noteprovider>(
         builder: (context, provider, child) {
-          return ListView(
+          return provider.notes.isEmpty? Center(child: Text("Add a note")):
+          ListView(
             children: [
               for (NoteModel note in provider.notes)
-                ListTile(title: Text(note.title), subtitle: Text(note.desc)),
+                ListTile(
+                title: Text(note.title), 
+                subtitle: Text(note.desc),
+                trailing: IconButton(onPressed: (){
+                  provider.deleteNote(note);
+                },
+                icon: Icon(Icons.delete))
+                ),
+              
             ],
           );
         },

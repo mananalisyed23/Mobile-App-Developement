@@ -8,5 +8,9 @@ void addNote(NoteModel note){
     notes.add(note);
     notifyListeners();  
 }
+void deleteNote(NoteModel note){
+  notes.remove(note);
+  notifyListeners();
+}
 
 }

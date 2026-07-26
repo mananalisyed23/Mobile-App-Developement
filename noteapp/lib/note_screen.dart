@@ -45,6 +45,7 @@ class _NoteScreenState extends State<NoteScreen> {
                       context,
                       listen: false,
                     ).addNote(note);
+                    Navigator.pop(context);
                   }
                 },
                 child: Text('Save'),
