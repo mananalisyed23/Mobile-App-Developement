@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:multiprovider_app/Homescreen.dart';
 import 'package:multiprovider_app/providers/counter1_provider.dart';
 import 'package:multiprovider_app/providers/counter2_provider.dart';
-import 'package:multiprovider_app/providers/counter3_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
