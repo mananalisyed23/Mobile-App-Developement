@@ -19,7 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('BlocApp'),
         backgroundColor: Colors.blueAccent,
       ),
-      body: BlocListener<AuthBloc,AuthState>(
+      body: 
+      BlocListener<AuthBloc,AuthState>(
       listener: (context,state){
         if(state is AuthLoadingState){
           ScaffoldMessenger.of(context).showSnackBar(
@@ -28,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Center(child: Text('Nothing')),
       ),
+     // BlocConsumer(builder: builder, listener: listener)
       //BlocBuilder<AuthBloc, AuthState>(
       //   builder: (context, state) {
       //     if (state is AuthLoadingState) {
