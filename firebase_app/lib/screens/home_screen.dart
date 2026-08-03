@@ -38,14 +38,15 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           for (var user in users)
             ListTile(
-              title: Text(user['name']), 
+              title: Text(user['name']),
               subtitle: Text(user['email']),
               trailing: IconButton(
-              onPressed: (){
-                dbRef.doc(user['id']).delete();
-              }, 
-              icon: Icon(Icons.delete)),
+                onPressed: () {
+                  dbRef.doc(user['id']).delete();
+                },
+                icon: Icon(Icons.delete),
               ),
+            ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
