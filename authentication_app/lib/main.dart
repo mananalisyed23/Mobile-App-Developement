@@ -18,7 +18,7 @@ class AuthApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
     debugShowCheckedModeBanner: false,
-    home:RegisterScreen(),
+    home:LoginScreen(),
     );
   }
 }
