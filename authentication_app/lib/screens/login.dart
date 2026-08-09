@@ -16,15 +16,6 @@ class _LoginScreenState extends State<LoginScreen> {
       body: ListView(
         children: [
           Text('Log In', style: Theme.of(context).textTheme.displayMedium),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RegisterScreen()),
-              );
-            },
-            child: Text('Register here'),
-          ),
         ],
       ),
     );
