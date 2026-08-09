@@ -1,3 +1,5 @@
+import 'package:authentication_app/screens/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -12,60 +14,101 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  FirebaseAuth auth = FirebaseAuth.instance;
+  bool loading = false;
+
+  void register() async {
+    setState(() {
+      loading = true;
+    });
+    try {
+      await auth.createUserWithEmailAndPassword(
+        email: email.text,
+        password: password.text,
+      );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toString())));
+    } finally {
+      setState(() {
+        loading = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Form(
-        key: formkey,
-        child: ListView(
-          padding: EdgeInsets.all(15),
-          children: [
-            SizedBox(height: 50),
-            Text(
-              'Register Here',
-              style: Theme.of(context).textTheme.displayLarge,
+      body: loading
+          ? Center(child: CircularProgressIndicator())
+          : Form(
+              key: formkey,
+              child: ListView(
+                padding: EdgeInsets.all(15),
+                children: [
+                  SizedBox(height: 50),
+                  Text(
+                    'Register Here',
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
+                  SizedBox(height: 50),
+                  TextFormField(
+                    decoration: InputDecoration(hintText: 'Name'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter name';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    decoration: InputDecoration(hintText: 'Email'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter name';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 15),
+                  TextFormField(
+                    decoration: InputDecoration(hintText: 'Password'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter name';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(onPressed: () {
+                    register();
+                  }, child: Text("Register")),
+                  Row(
+                    children: [
+                      Text('Already have account?'),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
+                        },
+                        child: Text('Login Now'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 50),
-            TextFormField(
-              decoration: InputDecoration(hintText: 'Name'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter name';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 15),
-            TextFormField(
-              decoration: InputDecoration(hintText: 'Email'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter name';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 15),
-            TextFormField(
-              decoration: InputDecoration(hintText: 'Password'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter name';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                Text('Already have account?'),
-                TextButton(onPressed: () {}, 
-                child: Text('Login Now')),
-              ],
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

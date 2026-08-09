@@ -1,3 +1,4 @@
+import 'package:authentication_app/screens/home_screen.dart';
 import 'package:authentication_app/screens/register.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login Screen'), centerTitle: true),
       body: Form(
         key: formkey,
         child: ListView(
@@ -43,6 +43,31 @@ class _LoginScreenState extends State<LoginScreen> {
                 }
                 return null;
               },
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
+              },
+              child: Text('Log in'),
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Text('Dont have an account?'),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterScreen()),
+                    );
+                  },
+                  child: Text("Register now!"),
+                ),
+              ],
             ),
           ],
         ),
