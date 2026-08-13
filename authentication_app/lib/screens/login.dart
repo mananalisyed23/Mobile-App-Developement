@@ -132,7 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 10),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      continueWithgoogle();
+                    },
                     child: Text('Continue with google'),
                   ),
                   SizedBox(height: 10),
