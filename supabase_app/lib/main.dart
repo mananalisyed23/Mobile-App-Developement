@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_app/homescreen.dart';
+import 'package:supabase_app/screens/login.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
@@ -15,6 +16,6 @@ class SupabaseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Homescreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: LoginScreen());
   }
 }
