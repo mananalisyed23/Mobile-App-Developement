@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_app/homescreen.dart';
 import 'package:supabase_app/screens/register.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,12 +15,17 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController password = TextEditingController();
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   bool loading = false;
-
+  final supabase = Supabase.instance.client;
   void loginNow() async {
     setState(() {
       loading = true;
     });
-    try {} catch (e) {
+    try {
+      final result = await supabase.auth.signInWithPassword(
+        email: email.text.trim(),
+        password: password.text,
+      );
+    } catch (e) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text(e.toString())));
@@ -70,6 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ElevatedButton(
                     onPressed: () {
                       loginNow();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => Homescreen()),
+                      );
                     },
                     child: Text('Log in'),
                   ),
@@ -83,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text('Dont have an account?'),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) => RegisterScreen(),
