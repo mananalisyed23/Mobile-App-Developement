@@ -105,6 +105,49 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(width: 10),
+              
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 128, 178, 117),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 10),
+                        Image.asset(
+                          "assets/svgs/fruit.png",
+                          height: 35,
+                          width: 35,
+                          color: Colors.white,
+                          fit: BoxFit.cover,
+                        ),
+                        Text("Fruits", style: AppWidget.whiteTextStyle(18)),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 10),
+              
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 128, 178, 117),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 10),
+                        Image.asset(
+                          "assets/svgs/fruit.png",
+                          height: 35,
+                          width: 35,
+                          color: Colors.white,
+                          fit: BoxFit.cover,
+                        ),
+                        Text("Fruits", style: AppWidget.whiteTextStyle(18)),
+                      ],
                     ),
                   ),
                 ],
