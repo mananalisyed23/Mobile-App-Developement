@@ -13,13 +13,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 30, left: 10),
+        margin: EdgeInsets.only(top: 40, left: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Welcome', style: AppWidget.blackTextStyle(24)),
             Text('Syed Manan Ali', style: AppWidget.blackTextStyle(22)),
-            SizedBox(height: 10),
+            SizedBox(height: 05),
             Row(
               children: [
                 Expanded(
@@ -56,7 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Image.asset("assets/images/banner1.png"),
             SizedBox(height: 10),
             Text('Categories', style: AppWidget.blackTextStyle(24)),
-            Container(
+            SizedBox(height: 10),
+            SizedBox(
               height: 100,
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -87,72 +88,131 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 100,
                     width: 100,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 128, 178, 117),
+                      color: const Color.fromARGB(255, 245, 227, 193),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Column(
                       children: [
                         SizedBox(height: 10),
                         Image.asset(
-                          "assets/svgs/fruit.png",
+                          "assets/svgs/milk.png",
                           height: 35,
                           width: 35,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 231, 156, 99),
                           fit: BoxFit.cover,
                         ),
-                        Text("Fruits", style: AppWidget.whiteTextStyle(18)),
+                        Text("Dairy", style: AppWidget.blackTextStyle(18)),
                       ],
                     ),
                   ),
                   SizedBox(width: 10),
-              
                   Container(
                     height: 100,
                     width: 100,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 128, 178, 117),
+                      color: const Color.fromARGB(255, 245, 227, 193),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Column(
                       children: [
                         SizedBox(height: 10),
                         Image.asset(
-                          "assets/svgs/fruit.png",
+                          "assets/svgs/vegetable.png",
                           height: 35,
                           width: 35,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 231, 156, 99),
                           fit: BoxFit.cover,
                         ),
-                        Text("Fruits", style: AppWidget.whiteTextStyle(18)),
+                        Text("Vegetable", style: AppWidget.blackTextStyle(18)),
                       ],
                     ),
                   ),
                   SizedBox(width: 10),
-              
                   Container(
                     height: 100,
                     width: 100,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 128, 178, 117),
+                      color: const Color.fromARGB(255, 245, 227, 193),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Column(
                       children: [
                         SizedBox(height: 10),
                         Image.asset(
-                          "assets/svgs/fruit.png",
+                          "assets/svgs/meat.png",
                           height: 35,
                           width: 35,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 231, 156, 99),
                           fit: BoxFit.cover,
                         ),
-                        Text("Fruits", style: AppWidget.whiteTextStyle(18)),
+                        Text("Meat", style: AppWidget.blackTextStyle(18)),
                       ],
                     ),
                   ),
                 ],
               ),
             ),
+            SizedBox(height: 10,),
+            Text('Popular Fruits',style: AppWidget.blackTextStyle(20)),
+            SizedBox(height: 10,),
+            SizedBox(
+              height: 205,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset("assets/images/apple.png", height: 100,width: 100,fit: BoxFit.fill, ),
+                        Text('Apple', style: AppWidget.blackTextStyle(20),),
+                        SizedBox(height: 5,),
+                        Text('\$07.00',style: AppWidget.headlineTextStyle(16),)
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                   Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset("assets/images/orange.png", height: 100,width: 100,fit: BoxFit.fill, ),
+                        Text('Orange', style: AppWidget.blackTextStyle(20),),
+                        SizedBox(height: 5,),
+                        Text('\$10.00',style: AppWidget.headlineTextStyle(16),)
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                   Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset("assets/images/peach.png", height: 100,width: 100,fit: BoxFit.fill, ),
+                        Text('Peach', style: AppWidget.blackTextStyle(20),),
+                        SizedBox(height: 5,),
+                        Text('\$15.00',style: AppWidget.headlineTextStyle(16),)
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
