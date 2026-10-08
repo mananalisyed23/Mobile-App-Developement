@@ -1,5 +1,13 @@
 class PostModel {
-  int id, userid;
-  String title, body;
-  PostModel(this.id, this.body, this.title, this.userid);
+  int id;
+  int userId;
+  String title;
+  String body;
+
+  PostModel(
+    this.id,
+    this.userId,
+    this.title,
+    this.body,
+  );
 }

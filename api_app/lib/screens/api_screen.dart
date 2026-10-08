@@ -13,25 +13,36 @@ class HomeScreen extends StatefulWidget {
 
 class _HState extends State<HomeScreen> {
   bool loading = false;
-  String link = 'https:/jsonplaceholder.typicode.com/posts';
+
+  String link = 'https://dummyjson.com/posts';
+
   List<PostModel> posts = [];
+
   void getData() async {
-    posts.clear();
     setState(() {
       loading = true;
+      posts.clear();
     });
+
     try {
       final response = await http.get(Uri.parse(link));
+
+      print(response.statusCode);
+
       final data = jsonDecode(response.body);
-      for (var post in data) {
+
+      for (var post in data['posts']) {
         PostModel newpost = PostModel(
           post['id'],
           post['userId'],
           post['title'],
           post['body'],
         );
+
+        posts.add(newpost);
       }
-      print(data[0]);
+
+      setState(() {});
     } catch (e) {
       print(e);
     } finally {
@@ -44,17 +55,27 @@ class _HState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Api integration')),
-      body: Center(
-        child: loading
-            ? CircularProgressIndicator()
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(onPressed: getData, child: Text('get api')),
-                ],
-              ),
-      ),
+      appBar: AppBar(title: Text('API Integration')),
+      body: loading
+          ? Center(child: CircularProgressIndicator())
+          : Column(
+              children: [
+                ElevatedButton(
+                  onPressed: getData, 
+                  child: Text('Get API')),
+                Expanded(
+                  child: ListView(
+                    children: [
+                      for (var post in posts)
+                        ListTile(
+                          title: Text(post.title),
+                          subtitle: Text(post.body),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }
