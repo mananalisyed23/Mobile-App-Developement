@@ -12,15 +12,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Home')),
-      body: Column(
-        children: [
-          Text('Welcome to the Home Screen!'),
-          ElevatedButton(
-            onPressed: () {
-            },
-            child: Text('Go to Details'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Welcome to the Home Screen!'),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+              },
+              child: Text('Go to Details'),
+            ),
+          ],
+        ),
       )
       );
   }
