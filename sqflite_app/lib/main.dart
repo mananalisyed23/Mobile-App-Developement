@@ -5,6 +5,8 @@ void main() {
   runApp(SQFlite());
 }
 class SQFlite extends StatelessWidget {
+  const SQFlite({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
