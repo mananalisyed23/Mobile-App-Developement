@@ -16,17 +16,18 @@ class MyDb {
     return db;
   }
 
-  getNotes()async {
+  Future<List<NoteModel>> getNotes() async {
     List<NoteModel> notes = [];
     final db = await database();
-    final data =db.query('notes');
-      for (var note in await data) {
-        NoteModel mynote= NoteModel.fromMap(note);
-        notes.add(mynote);
+    final data = db.query('notes');
+    for (var note in await data) {
+      NoteModel mynote = NoteModel.fromMap(note);
+      notes.add(mynote);
     }
+    return notes;
   }
 
-  void insertNote(NoteModel note) async {
+  Future<void> insertNote(NoteModel note) async {
     final db = await database();
     await db.insert(
       'notes',
@@ -34,7 +35,8 @@ class MyDb {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
-  void updateNote(NoteModel note) async {
+
+  Future<void> updateNote(NoteModel note) async {
     final db = await database();
     await db.update(
       'notes',
@@ -43,12 +45,9 @@ class MyDb {
       whereArgs: [note.id],
     );
   }
-  void deleteNote(int id) async {
+
+  Future<void> deleteNote(int id) async {
     final db = await database();
-    await db.delete(
-      'notes',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    await db.delete('notes', where: 'id = ?', whereArgs: [id]);
   }
 }
